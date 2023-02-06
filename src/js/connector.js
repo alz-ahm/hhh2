@@ -131,13 +131,6 @@ window.TrelloPowerUp.initialize({
       text: 'Open Popup',
       callback: onBtnClick,
       condition: 'edit'
-    }, {
-      // but of course, you could also just kick off to a url if that's your thing
-      icon: GRAY_ICON,
-      text: 'Just a URL',
-      condition: 'always',
-      url: 'https://developer.atlassian.com/cloud/trello',
-      target: 'Trello Developer Site' // optional target for above url
     }];
   }
 });
