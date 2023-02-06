@@ -140,10 +140,13 @@ window.TrelloPowerUp.initialize({
   },
   // eslint-disable-next-line no-unused-vars
   'attachment-sections': function (t, options) {
+    console.log('attachment function is running');
     const claimed = options.entries.filter(function (attachment) {
       return attachment.url.indexOf('http://www.nps.gov/yell/') === 0;
     });
+    console.log(claimed);
     if (claimed && claimed.length > 0) {
+      console.log('claimed length > 0');
       return [
         {
           id: 'Yellowstone', // optional if you aren't using a function for the title
