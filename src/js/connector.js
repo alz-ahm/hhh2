@@ -123,8 +123,8 @@ const GRAY_ICON =
 const onBtnClick = function (t, opts) {
   return t.attach({
     name: 'Attachment Title',
-    url: 'https://www.alirezaa.com/1',
-  });
+    url: 'https://www.youtube.com/1',
+  });g
 };
 
 window.TrelloPowerUp.initialize({
@@ -151,7 +151,7 @@ window.TrelloPowerUp.initialize({
     );
 
     const claimed = options.entries.filter(function (attachment) {
-      return attachment.url.indexOf('https://www.alirezaa.com/') === 0;
+      return attachment.url.indexOf('https://www.youtube.com/') === 0;
     });
     console.log(claimed);
     if (claimed && claimed.length > 0) {
