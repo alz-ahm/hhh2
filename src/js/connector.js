@@ -121,7 +121,10 @@ const GRAY_ICON =
 
 // eslint-disable-next-line no-unused-vars
 const onBtnClick = function (t, opts) {
-  console.log('Someone clicked the button');
+  return t.attach({
+    name: 'Attachment Title',
+    url: 'https://www.alirezaa.com/1',
+  });
 };
 
 window.TrelloPowerUp.initialize({
@@ -142,7 +145,7 @@ window.TrelloPowerUp.initialize({
   'attachment-sections': function (t, options) {
     console.log('attachment function is running');
     const claimed = options.entries.filter(function (attachment) {
-      return attachment.url.indexOf('http://www.nps.gov/yell/') === 0;
+      return attachment.url.indexOf('https://www.alirezaa.com/') === 0;
     });
     console.log(claimed);
     if (claimed && claimed.length > 0) {
