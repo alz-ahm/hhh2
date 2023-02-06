@@ -68,3 +68,7 @@ dist/
 
 # Local Netlify folder
 .netlify
+
+.idea/
+
+package-lock.json
