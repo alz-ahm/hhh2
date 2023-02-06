@@ -138,4 +138,8 @@ window.TrelloPowerUp.initialize({
       },
     ];
   },
+  // eslint-disable-next-line no-unused-vars
+  'attachment-sections': function (t, options) {g
+    return [];
+  },
 });
