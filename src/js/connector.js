@@ -121,7 +121,7 @@ var onBtnClick = function (t, opts) {
 };
 
 window.TrelloPowerUp.initialize({
-  'card-badges': function(t, opts) {
+  'card-buttons': function(t, opts) {
     // return an array of card badges for the given card
     return [
       {
