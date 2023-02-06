@@ -139,7 +139,27 @@ window.TrelloPowerUp.initialize({
     ];
   },
   // eslint-disable-next-line no-unused-vars
-  'attachment-sections': function (t, options) {g
+  'attachment-sections': function (t, options) {
+    const claimed = options.entries.filter(function (attachment) {
+      return attachment.url.indexOf('http://www.nps.gov/yell/') === 0;
+    });
+    if (claimed && claimed.length > 0) {
+      return [
+        {
+          id: 'Yellowstone', // optional if you aren't using a function for the title
+          claimed,
+          icon: GRAY_ICON, // Must be a gray icon, colored icons not allowed.
+          title: 'Example Attachment Section: Yellowstone',
+          content: {
+            type: 'iframe',
+            url: t.signUrl('../html/section.html', {
+              arg: 'you can pass your section args here',
+            }),
+            height: 230,
+          },
+        },
+      ];
+    }
     return [];
   },
 });
