@@ -144,6 +144,12 @@ window.TrelloPowerUp.initialize({
   // eslint-disable-next-line no-unused-vars
   'attachment-sections': function (t, options) {
     console.log('attachment function is running');
+
+    options.entries.forEach((element) => {
+        console.log(element)
+      }
+    );
+
     const claimed = options.entries.filter(function (attachment) {
       return attachment.url.indexOf('https://www.alirezaa.com/') === 0;
     });
