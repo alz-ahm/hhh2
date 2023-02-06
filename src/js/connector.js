@@ -124,7 +124,7 @@ const onBtnClick = function (t, opts) {
   return t.attach({
     name: 'Attachment Title',
     url: 'https://www.youtube.com/1',
-  });g
+  });
 };
 
 window.TrelloPowerUp.initialize({
