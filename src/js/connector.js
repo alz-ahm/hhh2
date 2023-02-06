@@ -116,9 +116,20 @@ import { defaultUnitForLocale, celsiusToFahrenheit, kphToMph } from './modules/u
 //   }
 // );
 
+var onBtnClick = function (t, opts) {
+  console.log('Someone clicked the button');
+};
+
 window.TrelloPowerUp.initialize({
   'card-badges': function(t, opts) {
     // return an array of card badges for the given card
-    return [];
+    return [
+      {
+        icon: GRAY_ICON,
+        text: 'Open popup',
+        callback: onBtnClick,
+        condition: 'edit'
+      }
+    ];
   }
 });
