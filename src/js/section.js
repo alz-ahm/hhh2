@@ -13,7 +13,7 @@ const onAddClicked = function (t, opts) {
 };
 
 const onShowClicked = function (t, opts) {
-  t.get('card', 'shared', 'myKey')
+  t.get('card', 'shared', 'myKey', '')
     .then(function (data) {
       console.log(data);
     });
