@@ -5,10 +5,31 @@ const arg = t.arg('arg');
 
 
 const onAddClicked = function (t, opts) {
-  console.log("Click on card works")
+  var text = document.getElementById('my-input').value
+
+  addNewSubtask(t, opts, text)
+
+  console.log("Click on card works" + text)
 };
 
+function addNewSubtask(text) {
+  console.id(t)
+  t.set('card', 'shared', 'myKey')
+    .then(function (data) {
+      console.log("info addedg");
+    });
 
+  t.get('card', 'shared', 'myKey')
+    .then(function (data) {
+      console.log(JSON.stringify(data, null, 2));
+    });
+
+  document.getElementById('my-inputs').append(`${text}-`);
+}
+
+window.onload = (event) => {
+  document.getElementById('add-input').onclick = onAddClicked
+};
 
 t.render(function () {
   console.log('running attachment function');
