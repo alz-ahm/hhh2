@@ -62,10 +62,9 @@ function getSubtasks(data) {
 
 // TODO use pair id, subtasks instead?
 function updateSubtask(substask) {
-
   var item = {
     title: substask.title,
-    is_checked: substask.checked,
+    is_checked: substask.is_checked,
   };
 
   t.set('card', 'shared', substask.id, JSON.stringify(item))
