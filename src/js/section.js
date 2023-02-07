@@ -4,6 +4,7 @@ const t = window.TrelloPowerUp.iframe();
 const arg = t.arg('arg');
 
 t.render(function () {
+  console.log('running attachment function');
   // make sure your rendering logic lives here, since we will
   // recall this method as the user adds and removes attachments
   // from your section
