@@ -3,6 +3,17 @@ const t = window.TrelloPowerUp.iframe();
 // you can access arguments passed to your iframe like so
 const arg = t.arg('arg');
 
+var sample_data = '{\n' +
+  '  "card": {\n' +
+  '    "shared": {\n' +
+  '      "riq683vt40mb2rie112w9wo0m1pcjm": "{\\"title\\":\\"hi\\",\\"is_checked\\":false}",\n' +
+  '      "mku5ro5xcte1egwawer8z82r8lt78k": "{\\"title\\":\\"hello\\",\\"is_checked\\":false}",\n' +
+  '      "iocq17syr2t23on00lzpfn87v35xfg": "{\\"title\\":\\"how are you?\\",\\"is_checked\\":false}",\n' +
+  '      "fit694p0u8koipi69noypdldxlrhxp": "{\\"title\\":\\"are you fine\\",\\"is_checked\\":false}"\n' +
+  '    }\n' +
+  '  }\n' +
+  '}'
+
 // TODO use a unique id generator instead
 function getRandomId() {
   var random = [...Array(30)].map(() => Math.random().toString(36)[2]).join('');
@@ -30,12 +41,36 @@ const onAddClicked = function() {
  *
  *
  */
+
+function getSubtasks(data) {
+  var data = JSON.parse(sample_data)['card']['shared']
+
+  console.log(data)
+  var subtasks = []
+  for (var key in data) {
+    var parsedData = JSON.parse(data[key])
+    subtasks.push(
+      {
+        id: key,
+        title: parsedData.title,
+        is_checked: parsedData.is_checked
+      }
+    )
+  }
+
+  console.log(subtasks)
+}
+
 const onShowClicked = function() {
+  getSubtasks(sample_data)
+    // console.log(getSubtasks(sample_data))
   t.getAll()
     .then(function(data) {
       console.log(JSON.stringify(data, null, 2));
     });
 };
+
+
 
 
 function addNewSubtask(text) {
