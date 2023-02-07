@@ -84,6 +84,8 @@ const onShowClicked = function() {
       var subtasks = getSubtasks(data)
       console.log(subtasks)
       subtasks[2].is_checked = !subtasks[2].is_checked
+      console.log("object modified")
+      console.log(subtasks[2])
       updateSubtask(subtasks[2])
       // console.log(JSON.stringify(data, null, 2));
     });
