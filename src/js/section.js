@@ -7,24 +7,27 @@ const arg = t.arg('arg');
 const onAddClicked = function (t, opts) {
   var text = document.getElementById('my-input').value
 
-  addNewSubtask(t, opts, text)
+  addNewSubtask(text)
 
   console.log("Click on card works" + text)
 };
 
-function addNewSubtask(text) {
-  console.log(t)
-  t.set('card', 'shared', 'myKey')
-    .then(function (data) {
-      console.log("info addedg");
-    });
-
+const onShowClicked = function (t, opts) {
   t.get('card', 'shared', 'myKey')
     .then(function (data) {
-      console.log(JSON.stringify(data, null, 2));
+      console.log(data);
+    });
+};
+
+
+
+function addNewSubtask(text) {
+  t.set('card', 'shared', 'myKey')
+    .then(function (data) {
+      console.log("info added");
     });
 
-  document.getElementById('my-inputs').append(`${text}-`);
+  // document.getElementById('my-inputs').append(`${text}-`);
 }
 
 window.onload = (event) => {
@@ -44,6 +47,7 @@ t.render(function () {
     })
     .then(function (yellowstoneAttachments) {
       document.getElementById('add-input').onclick = onAddClicked
+      document.getElementById('show-input').onclick = onShowClicked
     })
 
 
