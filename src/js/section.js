@@ -83,9 +83,8 @@ const onShowClicked = function() {
     .then(function(data) {
       var subtasks = getSubtasks(data)
       console.log(subtasks)
-      var subtaskToUpdate = subtasks[2]
-      subtaskToUpdate.is_checked = !subtaskToUpdate.is_checked
-      updateSubtask(subtaskToUpdate)
+      subtasks[2].is_checked = !subtasks[2].is_checked
+      updateSubtask(subtasks[2])
       // console.log(JSON.stringify(data, null, 2));
     });
 };
