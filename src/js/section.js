@@ -43,12 +43,11 @@ const onAddClicked = function() {
  */
 
 function getSubtasks(data) {
-  // var data = JSON.parse(data)['card']['shared']
-
-  console.log(data)
+  var tasks_data = data['card']['shared']
+  console.log(tasks_data)
   var subtasks = []
-  for (var key in data) {
-    var parsedData = JSON.parse(data[key])
+  for (var key in tasks_data) {
+    var parsedData = JSON.parse(tasks_data[key])
     subtasks.push(
       {
         id: key,
@@ -80,7 +79,8 @@ function changeChecked(substask, checked) {
 
 
 const onShowClicked = function() {
-  // var subtasks = getSubtasks(sample_data)
+  // var subtasks = getSubtasks(JSON.parse(sample_data))
+  // console.log(subtasks)
   // changeChecked(subtasks[0], !subtasks[0].is_checked)
   t.getAll()
     .then(function(data) {
