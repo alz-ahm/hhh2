@@ -22,7 +22,7 @@ const onShowClicked = function () {
 
 
 function addNewSubtask(text) {
-  t.set('card', 'shared', 'myKey')
+  t.set('card', 'shared', 'myKey', text)
     .then(function (data) {
       console.log("info added");
     });
