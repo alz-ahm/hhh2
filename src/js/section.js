@@ -3,39 +3,60 @@ const t = window.TrelloPowerUp.iframe();
 // you can access arguments passed to your iframe like so
 const arg = t.arg('arg');
 
+// TODO use a unique id generator instead
+function getRandomId() {
+  var random = [...Array(30)].map(() => Math.random().toString(36)[2]).join('');
+  return random;
+}
 
-const onAddClicked = function () {
-  var text = document.getElementById('my-input').value
+const onAddClicked = function() {
+  var text = document.getElementById('my-input').value;
 
-  addNewSubtask(text)
+  addNewSubtask(text);
 
-  console.log("Click on card works" + text)
+  console.log('Click on card works' + text);
 };
 
-const onShowClicked = function () {
-  t.get('card', 'shared', 'myKey', '')
-    .then(function (data) {
-      console.log(data);
+/**
+ * Subtask -> unique number, is checked, text, insert date
+ *
+ * When reading (get the list, sort by insert date)
+ *
+ * Insert date could be wrong!
+ *
+ *
+ * Put everything into one big string -> more content, what if it fails
+ *
+ *
+ *
+ */
+const onShowClicked = function() {
+  t.getAll()
+    .then(function(data) {
+      console.log(JSON.stringify(data, null, 2));
     });
 };
-
 
 
 function addNewSubtask(text) {
-  t.set('card', 'shared', 'myKey', text)
-    .then(function (data) {
-      console.log("info added");
-    });
+  var subtask = {
+    title: text,
+    is_checked: false,
+  };
 
-  // document.getElementById('my-inputs').append(`${text}-`);
+  t.set('card', 'shared', getRandomId(), JSON.stringify(subtask))
+    .then(function(data) {
+      console.log('info added');
+    });
 }
 
 window.onload = (event) => {
-  document.getElementById('add-input').onclick = onAddClicked
-  document.getElementById('show-input').onclick = onShowClicked
+  console.log(getRandomId());
+  document.getElementById('add-input').onclick = onAddClicked;
+  document.getElementById('show-input').onclick = onShowClicked;
 };
 
-t.render(function () {
+t.render(function() {
   console.log('running attachment function');
   // make sure your rendering logic lives here, since we will
   // recall this method as the user adds and removes attachments
@@ -43,14 +64,13 @@ t.render(function () {
 
   t.card('attachments')
     .get('attachments')
-    .filter(function (attachment) {
+    .filter(function(attachment) {
       return attachment.url.indexOf('https://www.youtube.com/') == 0;
     })
-    .then(function (yellowstoneAttachments) {
-      document.getElementById('add-input').onclick = onAddClicked
-      document.getElementById('show-input').onclick = onShowClicked
-    })
-
+    .then(function(yellowstoneAttachments) {
+      document.getElementById('add-input').onclick = onAddClicked;
+      document.getElementById('show-input').onclick = onShowClicked;
+    });
 
 
   // t.card('attachments')
