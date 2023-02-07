@@ -13,7 +13,7 @@ const onAddClicked = function (t, opts) {
 };
 
 function addNewSubtask(text) {
-  console.id(t)
+  console.log(t)
   t.set('card', 'shared', 'myKey')
     .then(function (data) {
       console.log("info addedg");
