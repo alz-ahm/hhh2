@@ -63,6 +63,8 @@ function getSubtasks(data) {
 
 // TODO use pair id, subtasks instead?
 function changeChecked(substask, checked) {
+  console.log(substask);
+  console.log(checked);
   substask.is_checked = checked
 
   var item = {
