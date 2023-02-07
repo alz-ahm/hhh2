@@ -4,7 +4,7 @@ const t = window.TrelloPowerUp.iframe();
 const arg = t.arg('arg');
 
 
-const onAddClicked = function (t, opts) {
+const onAddClicked = function () {
   var text = document.getElementById('my-input').value
 
   addNewSubtask(text)
@@ -12,7 +12,7 @@ const onAddClicked = function (t, opts) {
   console.log("Click on card works" + text)
 };
 
-const onShowClicked = function (t, opts) {
+const onShowClicked = function () {
   t.get('card', 'shared', 'myKey', '')
     .then(function (data) {
       console.log(data);
@@ -32,7 +32,7 @@ function addNewSubtask(text) {
 
 window.onload = (event) => {
   document.getElementById('add-input').onclick = onAddClicked
-  document.getElementById('show-input').onclick = onShowClickedgs
+  document.getElementById('show-input').onclick = onShowClicked
 };
 
 t.render(function () {
