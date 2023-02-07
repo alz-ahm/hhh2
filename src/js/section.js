@@ -66,7 +66,7 @@ function changeChecked(substask, checked) {
   substask.is_checked = checked
 
   var item = {
-    title: text,
+    title: substask.text,
     is_checked: substask.is_checked,
   };
 
@@ -78,6 +78,8 @@ function changeChecked(substask, checked) {
 
 
 const onShowClicked = function() {
+  // var subtasks = getSubtasks(sample_data)
+  // changeChecked(subtasks[0], !subtasks[0].is_checked)
   t.getAll()
     .then(function(data) {
       var subtasks = getSubtasks(data)
