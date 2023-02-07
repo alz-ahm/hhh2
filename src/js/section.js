@@ -43,7 +43,7 @@ const onAddClicked = function() {
  */
 
 function getSubtasks(data) {
-  var data = JSON.parse(sample_data)['card']['shared']
+  var data = JSON.parse(data)['card']['shared']
 
   console.log(data)
   var subtasks = []
