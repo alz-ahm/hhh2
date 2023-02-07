@@ -62,13 +62,10 @@ function getSubtasks(data) {
 
 // TODO use pair id, subtasks instead?
 function changeChecked(substask, checked) {
-  console.log(substask);
-  console.log(checked);
-  substask.is_checked = checked
 
   var item = {
-    title: substask.text,
-    is_checked: substask.is_checked,
+    title: substask.title,
+    is_checked: checked,
   };
 
   t.set('card', 'shared', substask.id, JSON.stringify(item))
@@ -86,7 +83,7 @@ const onShowClicked = function() {
     .then(function(data) {
       var subtasks = getSubtasks(data)
       console.log(subtasks)
-      changeChecked(subtasks[0], !subtasks[0].is_checked)
+      changeChecked(subtasks[1], !subtasks[1].is_checked)
       // console.log(JSON.stringify(data, null, 2));
     });
 };
