@@ -58,20 +58,34 @@ function getSubtasks(data) {
     )
   }
 
-  console.log(subtasks)
+  return subtasks
 }
 
+// TODO use pair id, subtasks instead?
+function changeChecked(substask, checked) {
+  substask.is_checked = checked
+
+  var item = {
+    title: text,
+    is_checked: substask.is_checked,
+  };
+
+  t.set('card', 'shared', substask.id, JSON.stringify(item))
+    .then(function(data) {
+      console.log('udpating card with new check state');
+    });
+}
+
+
 const onShowClicked = function() {
-  getSubtasks(sample_data)
-    // console.log(getSubtasks(sample_data))
   t.getAll()
     .then(function(data) {
-      console.log(JSON.stringify(data, null, 2));
+      var subtasks = getSubtasks(data)
+      console.log(subtasks)
+      changeChecked(subtasks[0], !subtasks[0].is_checked)
+      // console.log(JSON.stringify(data, null, 2));
     });
 };
-
-
-
 
 function addNewSubtask(text) {
   var subtask = {
