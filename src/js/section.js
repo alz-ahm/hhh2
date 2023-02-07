@@ -32,6 +32,7 @@ function addNewSubtask(text) {
 
 window.onload = (event) => {
   document.getElementById('add-input').onclick = onAddClicked
+  document.getElementById('show-input').onclick = onShowClickedgs
 };
 
 t.render(function () {
